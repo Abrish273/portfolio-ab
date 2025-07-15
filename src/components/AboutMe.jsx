@@ -22,8 +22,8 @@ const AboutMe = () => {
           {/* Text Content */}
           <ul className="space-y-3 text-base sm:text-[15px] md:text-sm leading-relaxed">
             <li>
-              • I am a Software engineer with 3+ years of experience of building scalable,
-              secure, and clean APIs with passion.
+              • I am a Software engineer with 3+ years of experience of building
+              scalable, secure, and clean APIs with passion.
             </li>
             <li>• Experienced in setting up and managing CI/CD pipelines</li>
             <li>
@@ -39,9 +39,10 @@ const AboutMe = () => {
             <li>
               • Domain experience in:
               <ul className="ml-6 list-disc list-inside">
-                <li>Fintech</li>
-                <li>Edutech</li>
+                <li>Fintech platforms</li>
+                <li>Edutech platforms</li>
                 <li>E-commerce platforms</li>
+                <li>Entertainment platforms</li>
               </ul>
             </li>
             <li>
