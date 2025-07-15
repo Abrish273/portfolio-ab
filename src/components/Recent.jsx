@@ -52,10 +52,10 @@ const App = () => {
 
   return (
     // px-4 md:px-12
-    <div className="min-h-screen bg-[#0e111a] px-12 py-10 text-white">
+    <div className="min-h-screen bg-[#0e111a] px-12 py-20 text-white">
       {/* Title */}
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
-        My recent <span className="text-teal-400">works</span>
+        My Recent <span className="text-teal-400">Works</span>
       </h1>
 
       {/* Categories scrollable bar */}

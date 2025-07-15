@@ -50,7 +50,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="bg-gray-900 py-16 px-4 md:px-12">
+    <section className="bg-gray-900 py-20 px-4 md:px-12">
       <h2 className="text-3xl font-bold text-cyan-400 mb-12 text-center">
         Services
       </h2>

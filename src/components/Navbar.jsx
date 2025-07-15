@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const navLinkClasses = (item) =>
     `px-3 py-1 rounded transition duration-200 ${
-      active === item ? "text-white" : "text-gray-300"
+      active === item ? "bg-teal-500" : "text-gray-300"
     } hover:bg-white/50`;
 
   // href="#home"
@@ -85,7 +85,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
+        {isOpen ? (
           <div className="md:hidden mt-2 space-y-2 text-sm">
             {/* {navItems.map((item) => (
               <button
@@ -97,18 +97,19 @@ export default function Navbar() {
                 </button>
                 ))} */}
             {navItems.map((item) => (
-              <button
+              <a
                 href={`#${navItemLinks[item]}`}
                 key={item}
                 onClick={() => handleClick(item)}
-                className={navLinkClasses(item) + " block w-full text-left"}
-                // className={navLinkClasses(item)}
+                className={
+                  navLinkClasses(item) + " block w-full h-10 text-left"
+                }
               >
                 {item}
-              </button>
+              </a>
             ))}
           </div>
-        )}
+        ) : null}
       </div>
     </nav>
   );

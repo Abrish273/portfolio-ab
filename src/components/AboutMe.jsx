@@ -2,7 +2,7 @@ import { AboutMeImg } from "../assets";
 
 const AboutMe = () => {
   return (
-    <section className="bg-gray-900 text-white px-6 py-12 md:py-20">
+    <section className="bg-gray-900 text-white px-6 py-20 md:py-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
         {/* Left Section */}
         <div className="flex-1 w-full">
