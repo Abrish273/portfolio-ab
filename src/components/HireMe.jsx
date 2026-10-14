@@ -18,6 +18,7 @@ const inquiryTypes = [
   "High-Scale APIs",
   "Distributed Systems",
   "Full-Time Role",
+  "Part-Time Role",
   "Consulting / Audit"
 ];
 
@@ -46,6 +47,8 @@ const HireMe = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const [fallbackUrls, setFallbackUrls] = useState(null);
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("abreham.tilahun2027@gmail.com");
     setCopied(true);
@@ -55,6 +58,20 @@ const HireMe = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("loading");
+
+    const formData = new FormData(formRef.current);
+    const fromName = formData.get("from_name") || "Potential Client";
+    const replyTo = formData.get("reply_to") || "";
+    const subject = formData.get("subject") || `Project Inquiry: ${selectedType}`;
+    const message = formData.get("message") || "";
+
+    const formattedSubject = `[Portfolio] ${subject} - from ${fromName}`;
+    const formattedBody = `Hello Abreham,\n\nName: ${fromName}\nEmail: ${replyTo}\nProject Scope: ${selectedType}\n\nMessage:\n${message}\n\n---\nSent via Portfolio Contact Form`;
+
+    const mailtoUrl = `mailto:abreham.tilahun2027@gmail.com?subject=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(formattedBody)}`;
+    const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=abreham.tilahun2027@gmail.com&su=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(formattedBody)}`;
+
+    setFallbackUrls({ mailto: mailtoUrl, gmail: gmailWebUrl });
 
     emailjs
       .sendForm(
@@ -68,18 +85,25 @@ const HireMe = () => {
           setStatus("success");
           try {
             confetti({
+              particleCount: 120,
+              spread: 70,
+              origin: { y: 0.6 }
+            });
+          } catch (err) {}
+          if (formRef.current) formRef.current.reset();
+        },
+        (error) => {
+          console.warn("EmailJS API response:", error);
+          // Auto-trigger mail client fallback so message is never lost
+          setStatus("fallback");
+          window.location.href = mailtoUrl;
+          try {
+            confetti({
               particleCount: 100,
               spread: 70,
               origin: { y: 0.6 }
             });
-          } catch (err) {
-            // ignore if confetti fails
-          }
-          if (formRef.current) formRef.current.reset();
-        },
-        (error) => {
-          console.error("Error sending email:", error);
-          setStatus("error");
+          } catch (err) {}
         }
       );
   };
@@ -233,7 +257,35 @@ const HireMe = () => {
                   <CheckIcon className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <strong className="block font-bold">Message sent successfully!</strong>
-                    <span>Thank you for reaching out. I'll review your project details and get back to you shortly.</span>
+                    <span>Thank you for reaching out. Your message has been delivered to Abreham's inbox.</span>
+                  </div>
+                </div>
+              )}
+
+              {status === "fallback" && fallbackUrls && (
+                <div className="p-4 mb-6 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-200 text-sm flex flex-col gap-3 animate-in fade-in">
+                  <div className="flex items-start gap-3">
+                    <CheckIcon className="w-5 h-5 text-teal-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="block font-bold text-white">Opening your email client...</strong>
+                      <span>Your message is formatted and ready to send directly to <strong className="text-teal-300 font-mono">abreham.tilahun2027@gmail.com</strong>.</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1 border-t border-teal-500/20">
+                    <a
+                      href={fallbackUrls.gmail}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 rounded-lg bg-teal-500 text-slate-950 font-semibold text-xs hover:bg-teal-400 transition"
+                    >
+                      Send via Gmail Web ↗
+                    </a>
+                    <a
+                      href={fallbackUrls.mailto}
+                      className="px-3 py-1.5 rounded-lg bg-slate-800 text-teal-300 hover:text-white border border-slate-700 text-xs transition"
+                    >
+                      Send via Default Mail App ↗
+                    </a>
                   </div>
                 </div>
               )}
@@ -325,6 +377,17 @@ const HireMe = () => {
                     </>
                   )}
                 </button>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+                  <span>Prefer sending directly?</span>
+                  <a
+                    href={`mailto:abreham.tilahun2027@gmail.com?subject=${encodeURIComponent(`Project Inquiry: ${selectedType}`)}`}
+                    className="text-teal-400 hover:text-teal-300 font-medium hover:underline inline-flex items-center gap-1"
+                  >
+                    <span>Open in your email client</span>
+                    <span>→</span>
+                  </a>
+                </div>
               </form>
             </div>
           </div>
