@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
@@ -38,8 +38,16 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><HeroSection /></PageWrapper>} />
-        <Route path="/about" element={<PageWrapper><AboutMe /></PageWrapper>} />
-        <Route path="/experience" element={<PageWrapper><Experience /></PageWrapper>} />
+        <Route
+          path="/about"
+          element={
+            <PageWrapper>
+              <AboutMe />
+              <Experience />
+            </PageWrapper>
+          }
+        />
+        <Route path="/experience" element={<Navigate to="/about" replace />} />
         <Route path="/services" element={<PageWrapper><ServicesSection /></PageWrapper>} />
         <Route path="/projects" element={<PageWrapper><Recent /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><HireMe /></PageWrapper>} />

@@ -4,7 +4,7 @@ import TechStackMarquee from "./TechStackMarquee";
 
 const AboutMe = () => {
   return (
-    <section id="about" className="min-h-[calc(100vh-5rem)] pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative bg-[#0b0f19]/80">
+    <section id="about" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative bg-[#0b0f19]/80">
       <div className="absolute top-24 right-10 w-80 h-80 bg-teal-500/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="max-w-7xl mx-auto">
 

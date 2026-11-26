@@ -88,7 +88,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="min-h-[calc(100vh-5rem)] pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative bg-[#080c14]/80">
+    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative bg-[#080c14]/80">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
 
