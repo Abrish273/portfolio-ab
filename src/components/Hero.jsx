@@ -41,7 +41,12 @@ const HeroSection = () => {
 
           {/* Left Text / Info Content (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-
+            <div className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg shadow-black/5 max-w-full">
+              <span className="w-2 h-2 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></span>
+              <span className="text-xs sm:text-sm md:text-md font-mono text-slate-500 leading-snug">
+                Available for engineering contracts & full-time senior roles
+              </span>
+            </div>
             {/* Availability Pill */}
             {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-teal-500/30 text-teal-300 text-xs sm:text-sm font-medium shadow-sm shadow-teal-500/10 backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5">
