@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AbrehamPdf, PhotoImg } from "../assets";
 import TechStackMarquee from "./TechStackMarquee";
+import { projectsData } from "../data/projects";
 import {
   ArrowDownTrayIcon,
   SparklesIcon,
@@ -188,6 +189,102 @@ const HeroSection = () => {
         </div>
         <div className="mt-12">
           <TechStackMarquee />
+        </div>
+
+        {/* Featured Sample Projects */}
+        <div className="mt-20 pt-14 border-t border-slate-800/80">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-teal-500/30 text-teal-300 text-xs font-mono uppercase tracking-widest mb-3">
+                <SparklesIcon className="w-3.5 h-3.5" />
+                <span>Featured Work</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Production <span className="text-gradient-cyan">Highlights</span>
+              </h2>
+              <p className="text-slate-400 text-sm mt-1.5">
+                A snapshot of high-scale fintech systems architected and delivered in production.
+              </p>
+            </div>
+
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-xl transition-all duration-200 shadow-lg shadow-teal-500/20 hover:shadow-teal-500/35 hover:-translate-y-0.5 self-start sm:self-auto"
+            >
+              <span>See More Projects</span>
+              <ArrowRightIcon className="w-4 h-4 stroke-[2.5]" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {projectsData.slice(0, 2).map((project, index) => (
+              <Link
+                key={project.id}
+                to="/projects"
+                className="group relative glass-card rounded-2xl p-6 sm:p-7 border border-slate-800/90 hover:border-teal-500/40 flex flex-col justify-between gap-6 overflow-hidden"
+              >
+                {/* Subtle corner glow */}
+                <div className="absolute -top-16 -right-16 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl group-hover:bg-teal-500/20 transition-colors pointer-events-none" />
+
+                <div className="flex flex-col sm:flex-row items-start gap-5 relative">
+                  {/* Framed App Logo */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-900/90 border border-slate-700/80 p-2.5 flex items-center justify-center shrink-0 shadow-inner">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <CircleStackIcon className="w-8 h-8 text-teal-400" />
+                    )}
+                  </div>
+
+                  {/* Header & Description */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-teal-300">
+                        0{index + 1} • {project.category}
+                      </span>
+                      <span className="text-[11px] font-mono text-slate-400 bg-slate-900/80 px-2.5 py-0.5 rounded-full border border-slate-800">
+                        {project.downloads}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white group-hover:text-teal-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs font-mono text-slate-400 mt-0.5">
+                      {project.modal.role}
+                    </p>
+                    <p className="text-sm text-slate-300 leading-relaxed mt-3">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Footer: Impact & Tech */}
+                <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-300">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                    <span>{project.impact}</span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tech.slice(0, 4).map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-900/90 text-slate-300 border border-slate-800"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
