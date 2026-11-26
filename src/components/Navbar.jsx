@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { LogoIcon, AbrehamPdf } from "../assets";
-import { 
-  Bars3Icon, 
-  XMarkIcon, 
-  ArrowDownTrayIcon, 
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ArrowDownTrayIcon,
   SparklesIcon,
-  EnvelopeIcon 
+  EnvelopeIcon
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
@@ -54,11 +54,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#080c14]/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/40 py-3"
-          : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-[#080c14]/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/40 py-3"
+        : "bg-transparent py-5"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -86,7 +85,7 @@ export default function Navbar() {
                 <span>Abreham</span>
                 <span className="text-teal-400">Tilahun</span>
               </div>
-              <span className="text-[11px] text-slate-400 font-mono tracking-wider uppercase">Senior Backend Eng.</span>
+              <span className="text-[11px] text-slate-400 font-mono tracking-wider uppercase">Senior Tech Lead.</span>
             </div>
           </a>
 
@@ -98,11 +97,10 @@ export default function Navbar() {
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className={`relative px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? "text-white bg-gradient-to-r from-teal-500 to-cyan-500 shadow-sm shadow-teal-500/30"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`relative px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 cursor-pointer ${isActive
+                    ? "text-white bg-gradient-to-r from-teal-500 to-cyan-500 shadow-sm shadow-teal-500/30"
+                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   {item.name}
                 </button>
@@ -115,19 +113,21 @@ export default function Navbar() {
             <a
               href={AbrehamPdf}
               download="Abreham_Tilahun_Resume.pdf"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg transition-all duration-200 hover:text-white hover:border-slate-600 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-lg transition-all duration-200 shadow-md shadow-teal-500/25 hover:shadow-teal-500/40"
+
+            // className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg transition-all duration-200 hover:text-white hover:border-slate-600 shadow-sm"
             >
-              <ArrowDownTrayIcon className="w-4 h-4 text-teal-400" />
+              <ArrowDownTrayIcon className="w-4 h-4" />
               <span>Resume</span>
             </a>
-            <a
+            {/* <a
               href="#contact"
               onClick={() => handleNavClick("contact")}
               className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-lg transition-all duration-200 shadow-md shadow-teal-500/25 hover:shadow-teal-500/40"
             >
               <EnvelopeIcon className="w-4 h-4" />
               <span>Hire Me</span>
-            </a>
+            </a> */}
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -161,16 +161,15 @@ export default function Navbar() {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                  active === item.href
-                    ? "bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/30"
-                    : "text-slate-300 hover:bg-white/5 hover:text-white"
-                }`}
+                className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${active === item.href
+                  ? "bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/30"
+                  : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  }`}
               >
                 {item.name}
               </button>
             ))}
-            <div className="pt-2 border-t border-slate-800 flex gap-2">
+            {/* <div className="pt-2 border-t border-slate-800 flex gap-2">
               <a
                 href="#contact"
                 onClick={() => handleNavClick("contact")}
@@ -178,7 +177,7 @@ export default function Navbar() {
               >
                 Hire Me
               </a>
-            </div>
+            </div> */}
           </div>
         )}
       </div>

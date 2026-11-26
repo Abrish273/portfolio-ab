@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
 
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-              Senior Software Engineer & Tech Team Lead. Architecting resilient distributed systems, high-concurrency microservices, and secure fintech platforms.
+              Senior Tech Lead & Backend Engineer. Architecting resilient distributed systems, high-concurrency microservices, and secure fintech platforms.
             </p>
 
             <div className="text-xs font-mono text-slate-500 flex items-center gap-2">

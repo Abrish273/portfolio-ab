@@ -24,7 +24,7 @@ const projectsData = [
     tech: ["Go", "Gin", "PostgreSQL", "Redis", "Apache Kafka", "Docker"],
     modal: {
       role: "Senior Backend Engineer & Architecture Contributor",
-      organization: "EagleLion System Solutions",
+      organization: "EagleLion System Technology",
       problem: "Massive transaction surges during peak merchant and salary settlement hours risked latency spikes, transaction timeouts, and reconciliation bottlenecks across disparate payment gateways.",
       solution: "Engineered high-throughput event-driven microservices using Go and Apache Kafka to decouple order ingestion from asynchronous settlement. Leveraged Redis distributed locks and connection pooling with PostgreSQL to guarantee zero transaction duplication.",
       impact: "Successfully scaled to support over ETB 500+ Billion in cumulative financial transaction volume with 99.9% availability, receiving an official Certificate of Contribution."
@@ -41,7 +41,7 @@ const projectsData = [
     tech: ["Node.js", "Express", "MongoDB", "Redis", "Double-Entry Ledger"],
     modal: {
       role: "Lead Backend Engineer",
-      organization: "EagleLion System Solutions",
+      organization: "EagleLion System Technology",
       problem: "International money transfers required strict anti-money laundering (AML) checks, rapid currency conversion rates, and automated reconciliation across multiple partner banks.",
       solution: "Implemented an automated fraud detection engine with velocity thresholds and device fingerprinting. Designed a tamper-proof double-entry ledger architecture ensuring zero balance discrepancy.",
       impact: "Processed millions in remittances with near-instant confirmation notifications and zero fraudulent breaches."
@@ -58,7 +58,7 @@ const projectsData = [
     tech: ["Node.js", "PostgreSQL", "Docker", "Core Banking API", "JWT"],
     modal: {
       role: "Backend & Systems Integration Specialist",
-      organization: "EagleLion System Solutions",
+      organization: "EagleLion System Technology",
       problem: "Interfacing modern internet-facing mobile applications with strict legacy core banking mainframe protocols without sacrificing throughput or security.",
       solution: "Engineered an API gateway facade with secure mTLS encryption, payload sanitization, automatic token rotation, and asynchronous retry queues with dead-letter processing.",
       impact: "Enabled diaspora communities worldwide to send financial support directly to CBE accounts 24/7 with ironclad cryptographic security."
@@ -75,7 +75,7 @@ const projectsData = [
     tech: ["Node.js", "Express", "MongoDB", "Redis", "CDN Integration"],
     modal: {
       role: "Backend Engineer",
-      organization: "EagleLion System Solutions",
+      organization: "EagleLion System Technology",
       problem: "High viewer spikes during prime-time movie premieres caused database query contention and slow catalog load times.",
       solution: "Implemented multi-tiered Redis caching for movie metadata, optimized compound MongoDB indexes, and created secure tokenized streaming URL generation.",
       impact: "Cut catalog load times by 65% and maintained flawless playback performance during record-setting premiere weekends."
@@ -92,7 +92,7 @@ const projectsData = [
     tech: ["Python", "FastAPI", "PostgreSQL", "RabbitMQ", "Redis"],
     modal: {
       role: "Backend API Engineer",
-      organization: "EagleLion System Solutions",
+      organization: "EagleLion System Technology",
       problem: "E-commerce conversion dropped significantly due to multi-step checkout friction and slow inventory reservation during flash sales.",
       solution: "Built asynchronous order processing with FastAPI and RabbitMQ queues. Implemented atomic Redis-based inventory locks to prevent overselling.",
       impact: "Reduced checkout execution time to under 180ms, boosting overall cart checkout conversion."

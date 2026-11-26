@@ -9,49 +9,78 @@ import {
 
 const experiences = [
   {
-    role: "Senior Backend Engineer & Tech Team Lead",
-    company: "EagleLion System Solutions",
+    role: "Senior Tech Lead",
+    company: "EagleLion System Technology",
     location: "Addis Ababa, Ethiopia",
-    period: "Apr 2024 — Present",
+    period: "Jan 2024 — Present",
     type: "Full-Time • On-site",
-    description: "Leading backend engineering and system integrations across mission-critical fintech and entertainment solutions with high transaction volumes.",
+    description: "Leading backend engineering teams in designing, developing, and delivering scalable, secure, and high-performance applications and services.",
     achievements: [
-      "Architected backend microservices and automation solutions for top-tier fintech and enterprise clients.",
-      "Engineered automated transaction validation and fraud detection workflows, significantly increasing operational efficiency and payment reliability.",
-      "Key contributor to the Dashen Super App backend ecosystem, which surpassed ETB 100+ Billion in total transaction volume.",
-      "Mentored junior engineers, established code review standards, and automated deployment pipelines with Docker and Kafka."
+      "Define backend architecture, engineering standards, coding practices, and technical guidelines; make and communicate technical decisions.",
+      "Oversee microservices, REST APIs, and internal and external integrations; guide database design, performance, reliability, and maintainability.",
+      "Plan and coordinate technical work, task distribution, sprint execution, and delivery; mentor engineers and strengthen quality through code reviews.",
+      "Partner with product, business, frontend, and QA stakeholders to translate requirements into technical solutions and address engineering risks."
     ],
-    tech: ["Go (Golang)", "Gin", "Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "Redis", "Kafka", "Docker", "immuDB"],
+    tech: ["Go (Golang)", "Gin", "Node.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Kafka", "Docker", "Kubernetes", "CI/CD"],
     featured: true
   },
   {
-    role: "Backend Developer",
-    company: "Dan Energy Ltd",
+    role: "Senior Backend Developer",
+    company: "EagleLion System Technology",
     location: "Addis Ababa, Ethiopia",
-    period: "Oct 2022 — Apr 2024",
+    period: "Jan 2024 — Mar 2026",
     type: "Full-Time • On-site",
-    description: "Developed and maintained internal backend systems supporting corporate operations, employee management, and business intelligence reporting.",
+    description: "Designed, implemented, and maintained backend services, REST APIs, business logic, data operations, and integrations across fintech, banking, and media platforms.",
     achievements: [
-      "Built resilient backend services supporting operational workflows and real-time internal reporting.",
-      "Collaborated with frontend teams and product managers to integrate backend APIs with responsive web interfaces.",
-      "Resolved complex data integration challenges and enhanced database indexing for improved query performance.",
-      "Assisted with onboarding junior developers with development guidelines and technical documentation."
+      "Contributed to backend development and integration of digital financial services within the Dashen Super App (surpassed ETB 500B+ in transaction volume; awarded Certificate of Contribution).",
+      "Built transaction workflows, validation, paperless banking processes, and digital service delivery across fintech and banking products.",
+      "Modeled relational and NoSQL data, optimized queries, and improved backend performance and service reliability.",
+      "Developed backend capabilities supporting content scheduling, management, and media workflows, while supporting modular architecture and maintenance."
     ],
-    tech: ["Python", "Flask", "Node.js", "MySQL", "MongoDB", "REST APIs", "Git", "Docker", "Linux"],
+    tech: ["Go", "Node.js", "Express.js", "FastAPI", "PostgreSQL", "MongoDB", "Redis", "immudb", "Kafka", "REST APIs"],
     featured: false
   },
   {
-    role: "B.Sc. in Electrical Engineering",
+    role: "Automation Engineer",
+    company: "Bruhati IT Solutions",
+    location: "Remote",
+    period: "Oct 2023 — Apr 2024",
+    type: "Remote",
+    description: "Designed and implemented business-process automation workflows to reduce manual work and improve operational consistency.",
+    achievements: [
+      "Translated business requirements into maintainable automation solutions and documented implementations.",
+      "Identified workflow bottlenecks and streamlined recurring operational processes."
+    ],
+    tech: ["Python", "Automation Workflows", "REST APIs", "JSON", "Documentation"],
+    featured: false
+  },
+  {
+    role: "Backend Developer",
+    company: "Dan Energy Ltd.",
+    location: "Addis Ababa, Ethiopia • On-site",
+    period: "Oct 2022 — Apr 2024",
+    type: "Full-Time • On-site",
+    description: "Developed and maintained internal backend systems supporting employee management, reporting automation, and business operations.",
+    achievements: [
+      "Integrated backend services with application interfaces and supported deployments, troubleshooting, and maintenance.",
+      "Automated internal reporting workflows and core employee management operations.",
+      "Shared technical guidance with junior developers and contributed to ongoing system improvements."
+    ],
+    tech: ["Python", "Flask", "Node.js", "MySQL", "MongoDB", "REST APIs", "Git", "Docker"],
+    featured: false
+  },
+  {
+    role: "BSc in Electrical Engineering",
     company: "Bahir Dar University",
     location: "Bahir Dar, Ethiopia",
-    period: "2018 — 2023",
+    period: "2022",
     type: "Education",
-    description: "Rigorous engineering curriculum focusing on systems engineering, embedded programming, control systems, and computational algorithms.",
+    description: "Bachelor of Science in Electrical Engineering, building a strong analytical foundation in systems engineering, algorithms, and software problem-solving.",
     achievements: [
-      "Graduated with honors in Electrical & Computer Systems Engineering.",
-      "Extensive coursework in Data Structures, Algorithms, Distributed Computing, and Systems Integration."
+      "Completed BSc in Electrical Engineering (2022) at Bahir Dar University.",
+      "Awarded Certificate of Contribution — Dashen Super App for backend engineering and delivery on a platform exceeding ETB 500 billion in transaction volume."
     ],
-    tech: ["Systems Engineering", "Algorithms", "Data Structures", "C/C++", "Signal Processing"],
+    tech: ["Electrical Engineering", "Systems Design", "Algorithms", "Problem Solving"],
     featured: false,
     isEducation: true
   }

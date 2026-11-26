@@ -14,81 +14,69 @@ const services = [
   {
     icon: <CodeBracketSquareIcon className="w-8 h-8" />,
     title: "High-Performance API Engineering",
-    description:
-      "Architecting clean, type-safe, and thoroughly documented RESTful and GraphQL APIs engineered to handle millions of daily requests with sub-50ms response times.",
     deliverables: [
-      "RESTful, GraphQL & gRPC API design",
-      "Swagger / OpenAPI 3.0 interactive documentation",
-      "Strict payload validation, rate-limiting & pagination",
-      "Versioning strategies & backward compatibility"
+      "RESTful, GraphQL & gRPC API development",
+      "API documentation with Swagger / OpenAPI",
+      "Request validation, rate limiting & pagination",
+      "API versioning and backward compatibility"
     ],
     tech: ["Go / Gin", "Node.js", "Express", "FastAPI", "OpenAPI"]
   },
   {
     icon: <ShieldCheckIcon className="w-8 h-8" />,
     title: "Fintech Security & Transaction Integrity",
-    description:
-      "Engineering bank-grade security protocols, automated fraud detection heuristics, and tamper-evident transaction logs for high-stakes payment ecosystems.",
     deliverables: [
-      "Zero-Trust OAuth2, JWT & RBAC implementations",
-      "Automated fraud detection & anomaly triggers",
-      "Immutable audit trails with cryptographic ledgers (immuDB)",
-      "Strict data encryption at rest and in transit"
+      "OAuth2, JWT & role-based access control",
+      "Secure payment and transaction processing",
+      "Fraud detection and anomaly monitoring",
+      "Data encryption and audit trail management"
     ],
-    tech: ["OAuth2 / JWT", "immuDB", "Encryption", "Fraud Engine"]
+    tech: ["OAuth2 / JWT", "Encryption", "immuDB", "Fraud Detection"]
   },
   {
     icon: <CircleStackIcon className="w-8 h-8" />,
     title: "Database Architecture & Optimization",
-    description:
-      "Designing resilient relational and NoSQL schemas optimized for high write throughput, complex analytical queries, and millisecond caching.",
     deliverables: [
-      "PostgreSQL & MySQL schema design and partitioning",
-      "Multi-tier in-memory caching with Redis",
-      "Indexing strategies & slow-query profiling",
-      "ACID compliance & distributed transactions"
+      "Relational and NoSQL database design",
+      "Database indexing and query optimization",
+      "Redis caching and performance tuning",
+      "Data consistency and transaction management"
     ],
     tech: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Prisma"]
   },
   {
     icon: <Squares2X2Icon className="w-8 h-8" />,
     title: "Distributed Systems & Microservices",
-    description:
-      "Decoupling monolithic platforms into fault-tolerant, horizontally scalable microservices connected by asynchronous messaging channels.",
     deliverables: [
-      "Event-driven messaging via Apache Kafka & RabbitMQ",
-      "Service discovery, circuit breakers & fault tolerance",
-      "Dockerized microservice containerization",
-      "Idempotent event processing & dead-letter queues"
+      "Microservices architecture and development",
+      "Event-driven architecture and messaging",
+      "Inter-service communication and integration",
+      "Fault tolerance and scalable system design"
     ],
     tech: ["Apache Kafka", "RabbitMQ", "Docker", "Microservices"]
   },
   {
     icon: <CloudArrowUpIcon className="w-8 h-8" />,
-    title: "DevOps, Cloud & CI/CD Pipelines",
-    description:
-      "Automating deployment lifecycles from git commit to production with automated tests, container registries, and zero-downtime releases.",
+    title: "DevOps, Cloud & CI/CD",
     deliverables: [
-      "Automated GitHub Actions & Jenkins workflows",
-      "Docker multi-stage builds for lean production images",
-      "Kubernetes & cloud VPS deployment setup",
-      "Automated database migration scripts & rollbacks"
+      "Automated CI/CD pipeline implementation",
+      "Docker containerization and deployment",
+      "Cloud and VPS infrastructure management",
+      "Production deployment and release automation"
     ],
     tech: ["Docker", "Kubernetes", "GitHub Actions", "Jenkins", "AWS"]
   },
   {
     icon: <ChartBarSquareIcon className="w-8 h-8" />,
     title: "System Monitoring & Observability",
-    description:
-      "Implementing comprehensive logging, health probes, performance metrics, and alerting to detect and resolve system bottlenecks before users notice.",
     deliverables: [
-      "Centralized structured JSON logging",
-      "Prometheus & Grafana metrics dashboards",
-      "Uptime monitoring & automated alerting triggers",
-      "Unit & end-to-end integration test suites"
+      "Centralized logging and error tracking",
+      "Performance monitoring and metrics dashboards",
+      "System health checks and automated alerting",
+      "Automated testing and quality assurance"
     ],
     tech: ["Prometheus", "Grafana", "Jest", "Pytest", "APM"]
-  },
+  }
 ];
 
 const ServicesSection = () => {

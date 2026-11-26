@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { AbrehamPdf, PhotoImg } from "../assets";
-import { 
-  ArrowDownTrayIcon, 
-  SparklesIcon, 
-  ArrowRightIcon, 
-  CheckIcon, 
+import {
+  ArrowDownTrayIcon,
+  SparklesIcon,
+  ArrowRightIcon,
+  CheckIcon,
   ClipboardDocumentIcon,
   ShieldCheckIcon,
   CpuChipIcon,
@@ -21,7 +21,7 @@ const HeroSection = () => {
   };
 
   const metrics = [
-    { value: "3+ Years", label: "Engineering Exp", highlight: "Senior / Lead" },
+    { value: "4+ Years", label: "Engineering Exp", highlight: "Senior Tech Lead" },
     { value: "ETB 500B+", label: "Transaction Volume", highlight: "Dashen Super App" },
     { value: "1M+", label: "App Downloads", highlight: "Across FinTech Apps" },
     { value: "99.9%", label: "Target Uptime", highlight: "Distributed Services" },
@@ -35,18 +35,18 @@ const HeroSection = () => {
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Text / Info Content (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-            
+
             {/* Availability Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-teal-500/30 text-teal-300 text-xs sm:text-sm font-medium shadow-sm shadow-teal-500/10 backdrop-blur-md">
+            {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-teal-500/30 text-teal-300 text-xs sm:text-sm font-medium shadow-sm shadow-teal-500/10 backdrop-blur-md">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
               <span>Available for Senior Backend Roles & Consulting</span>
-            </div>
+            </div> */}
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
@@ -58,10 +58,23 @@ const HeroSection = () => {
             </h1>
 
             {/* Subtitle Bio */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
-              I'm <strong className="text-white font-semibold">Abreham Tilahun</strong> — Senior Software Engineer & Tech Team Lead. 
-              I specialize in high-concurrency backend services with <span className="text-teal-300 font-medium">Go</span>, <span className="text-teal-300 font-medium">Node.js</span>, and <span className="text-teal-300 font-medium">Python</span>, event-driven architectures with <span className="text-teal-300 font-medium">Kafka</span>, and financial platforms trusted with over <span className="text-cyan-300 font-semibold underline decoration-cyan-500/50 underline-offset-4">ETB 100+ Billion</span>.
-            </p>
+            <div className="space-y-4">
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
+                I'm <strong className="text-white font-semibold">Abreham Tilahun</strong> —
+                Senior Tech Lead & Backend Engineer with 4+ years of experience driving
+                technology initiatives and building impactful digital solutions, particularly
+                in the fintech industry. I specialize in leading engineering teams,
+                shaping technical strategy, designing scalable architectures, and
+                translating complex business requirements into reliable technology solutions.
+              </p>
+
+              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
+                My approach combines technical leadership, strategic problem-solving,
+                and hands-on engineering to deliver secure, scalable, and high-impact systems.
+                I've contributed to financial platforms trusted with over
+                <span className="text-cyan-300 font-semibold"> ETB 500+ Billion</span> in transactions.
+              </p>
+            </div>
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
@@ -73,14 +86,14 @@ const HeroSection = () => {
                 <ArrowRightIcon className="w-4 h-4 stroke-[2.5]" />
               </a>
 
-              <a
+              {/* <a
                 href={AbrehamPdf}
                 download="Abreham_Tilahun_Resume.pdf"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm sm:text-base font-medium text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
               >
                 <ArrowDownTrayIcon className="w-5 h-5 text-teal-400" />
                 <span>Download CV</span>
-              </a>
+              </a> */}
 
               <button
                 onClick={handleCopyEmail}
@@ -117,10 +130,10 @@ const HeroSection = () => {
           {/* Right Profile Visual & Floating Badge (5 cols) */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
             <div className="relative w-64 sm:w-72 md:w-80 aspect-[0.88] max-w-full">
-              
+
               {/* Outer decorative gradient rings */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-teal-500/20 via-cyan-500/10 to-indigo-500/20 blur-xl"></div>
-              
+
               <div className="relative w-full h-full rounded-3xl p-1 bg-gradient-to-b from-teal-500/40 via-slate-800 to-cyan-500/20 shadow-2xl shadow-cyan-950/50">
                 <div className="w-full h-full rounded-[22px] overflow-hidden bg-slate-900 relative">
                   <img

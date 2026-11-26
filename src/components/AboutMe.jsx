@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { AboutMeImg } from "../assets";
-import { 
-  Code2, 
-  Database, 
-  Server, 
-  Cpu, 
-  Cloud, 
-  ShieldCheck, 
-  Sparkles, 
-  Layers, 
+import {
+  Code2,
+  Database,
+  Cpu,
+  Cloud,
+  ShieldCheck,
+  Sparkles,
+  Layers,
   Zap,
   CheckCircle,
   Terminal,
-  Workflow
+  Workflow,
+  Users
 } from "lucide-react";
 
 const skillCategories = [
@@ -22,9 +22,9 @@ const skillCategories = [
     icon: <Terminal className="w-4 h-4" />,
     skills: [
       { name: "Go (Golang)", level: "Advanced", desc: "Gin, Goroutines, Channels, High-throughput services" },
-      { name: "Node.js / TypeScript", level: "Expert", desc: "Async I/O, Express, Microservices" },
-      { name: "Python", level: "Proficient", desc: "FastAPI, Flask, Automation, Data pipelines" },
-      { name: "SQL", level: "Advanced", desc: "Complex joins, indexing, query execution optimization" },
+      { name: "Node.js / TypeScript", level: "Expert", desc: "JavaScript/TypeScript, Async I/O, Express, Microservices" },
+      { name: "Python", level: "Proficient", desc: "FastAPI, Flask, Automation, Backend services" },
+      { name: "Java & SQL", level: "Proficient", desc: "Enterprise services, complex joins, query optimization" },
     ]
   },
   {
@@ -34,9 +34,8 @@ const skillCategories = [
     skills: [
       { name: "Gin (Go)", level: "Advanced", desc: "Ultra-fast RESTful APIs and middleware" },
       { name: "Express.js", level: "Expert", desc: "Enterprise modular API architectures" },
-      { name: "FastAPI", level: "Advanced", desc: "Type-safe async Python endpoints" },
-      { name: "Flask", level: "Proficient", desc: "Microservices and backend scripts" },
-      { name: "RESTful & GraphQL", level: "Expert", desc: "API contract design, OpenAPI/Swagger" },
+      { name: "FastAPI & Flask", level: "Advanced", desc: "Type-safe async Python endpoints and automation" },
+      { name: "REST APIs & Integration", level: "Expert", desc: "API design, JSON, third-party & core banking integrations" },
     ]
   },
   {
@@ -44,22 +43,21 @@ const skillCategories = [
     label: "Databases & Caching",
     icon: <Database className="w-4 h-4" />,
     skills: [
-      { name: "PostgreSQL", level: "Advanced", desc: "Schema design, partitions, performance tuning" },
+      { name: "PostgreSQL", level: "Advanced", desc: "Data modeling, partitioning, query optimization" },
       { name: "MongoDB", level: "Advanced", desc: "NoSQL document modeling and aggregations" },
-      { name: "Redis", level: "Advanced", desc: "In-memory caching, rate limiting, pub/sub" },
-      { name: "immuDB", level: "Specialist", desc: "Immutable cryptographic ledger for audit logs" },
-      { name: "MySQL", level: "Proficient", desc: "Relational modeling and transaction management" },
+      { name: "Redis", level: "Advanced", desc: "In-memory caching, rate limiting, distributed locks" },
+      { name: "immudb & MySQL", level: "Specialist", desc: "Immutable ledger auditability & relational modeling" },
     ]
   },
   {
     id: "distributed",
-    label: "Distributed & Messaging",
+    label: "Architecture & Messaging",
     icon: <Workflow className="w-4 h-4" />,
     skills: [
-      { name: "Apache Kafka", level: "Advanced", desc: "High-volume event streaming and consumers" },
-      { name: "RabbitMQ", level: "Proficient", desc: "Task queues and asynchronous routing" },
-      { name: "Event-Driven Microservices", level: "Advanced", desc: "Decoupled services, event sourcing" },
-      { name: "System Integration", level: "Expert", desc: "Fintech payment gateways, core banking APIs" },
+      { name: "Microservices", level: "Advanced", desc: "Modular distributed services, scalability & reliability" },
+      { name: "Event-Driven & Kafka", level: "Advanced", desc: "High-volume event streaming and async consumers" },
+      { name: "Transaction Processing", level: "Expert", desc: "Fintech workflows, validation, paperless banking" },
+      { name: "System Integration", level: "Expert", desc: "Internal/external gateways and third-party APIs" },
     ]
   },
   {
@@ -67,21 +65,21 @@ const skillCategories = [
     label: "DevOps & Cloud",
     icon: <Cloud className="w-4 h-4" />,
     skills: [
-      { name: "Docker", level: "Advanced", desc: "Multi-stage builds, container orchestration" },
-      { name: "Kubernetes", level: "Intermediate", desc: "Pod deployments, config maps, services" },
-      { name: "CI/CD Pipelines", level: "Advanced", desc: "GitHub Actions, Jenkins automated deployments" },
-      { name: "Cloud Infrastructure", level: "Proficient", desc: "AWS, DigitalOcean, Linux VPS administration" },
+      { name: "Docker", level: "Advanced", desc: "Multi-stage builds and containerization" },
+      { name: "Kubernetes", level: "Intermediate", desc: "Container orchestration, deployments, and services" },
+      { name: "Jenkins & CI/CD", level: "Advanced", desc: "Automated build, test, and deployment pipelines" },
+      { name: "Git & AWS", level: "Proficient", desc: "Version control workflows and cloud infrastructure" },
     ]
   },
   {
-    id: "security",
-    label: "Security & FinTech",
-    icon: <ShieldCheck className="w-4 h-4" />,
+    id: "leadership",
+    label: "Leadership & Delivery",
+    icon: <Users className="w-4 h-4" />,
     skills: [
-      { name: "OAuth2 & JWT", level: "Expert", desc: "Role-based access control (RBAC), tokens" },
-      { name: "Fraud Detection", level: "Advanced", desc: "Validation rules, anomaly checks, velocity limits" },
-      { name: "Financial Auditability", level: "Advanced", desc: "Double-entry bookkeeping concepts, ledger logs" },
-      { name: "API Security", level: "Expert", desc: "CORS, rate limiting, payload validation, encryption" },
+      { name: "Technical Planning", level: "Lead", desc: "Architecture decisions, task distribution, risk mitigation" },
+      { name: "Team Coordination", level: "Lead", desc: "Sprint execution, Agile/Scrum, cross-functional alignment" },
+      { name: "Code Reviews & Mentoring", level: "Lead", desc: "Engineering standards, coding practices, team growth" },
+      { name: "Performance & Docs", level: "Lead", desc: "Query/service tuning and technical documentation" },
     ]
   }
 ];
@@ -117,7 +115,7 @@ const AboutMe = () => {
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-[#0b0f19]">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-teal-500/30 text-teal-300 text-xs font-mono uppercase tracking-widest mb-3">
@@ -134,17 +132,19 @@ const AboutMe = () => {
 
         {/* Top Split: Executive Bio + Philosophy Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-20">
-          
+
           {/* Bio Narrative (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed">
             <p>
-              I am a <span className="text-white font-semibold">Senior Software Engineer & Tech Team Lead</span> based in Addis Ababa, Ethiopia, with over 3+ years of professional experience building high-availability backends, scalable REST/GraphQL APIs, and distributed systems.
+              I am a <span className="text-white font-semibold">Senior Tech Lead & Backend Engineer</span> based in Addis Ababa, Ethiopia, with 4+ years of experience leading software engineering initiatives, shaping technical direction, and delivering scalable enterprise solutions. My focus is on system architecture, engineering excellence, technical decision-making, and transforming business requirements into reliable digital products.
             </p>
+
             <p>
-              My background centers on <span className="text-teal-300 font-medium">Fintech transaction systems</span>, where accuracy and security are non-negotiable. I spearheaded transaction validation and fraud detection pipelines for major digital platforms, including contributions to the <span className="text-white font-semibold">Dashen Super App</span>, which processed over <span className="text-cyan-400 font-semibold">ETB 500+ Billion</span>.
+              My experience is deeply rooted in <span className="text-teal-300 font-medium">Fintech and Banking Systems</span>, where performance, security, and transaction integrity are critical. I have contributed to the architecture and delivery of major financial platforms, including the <span className="text-white font-semibold">Dashen Super App</span>, which surpassed <span className="text-cyan-400 font-semibold">ETB 500+ Billion</span> in transaction volume, earning recognition through a Certificate of Contribution.
             </p>
+
             <p>
-              As a tech lead at <span className="text-white font-semibold">EagleLion System Solutions</span>, I balance architectural decisions—from distributed messaging with <span className="text-teal-300 font-medium">Kafka</span> and high-speed in-memory caching with <span className="text-teal-300 font-medium">Redis</span> to database optimization with <span className="text-teal-300 font-medium">PostgreSQL</span> and <span className="text-teal-300 font-medium">immuDB</span>—with mentoring engineering talent and enforcing CI/CD automation.
+              As a Senior Tech Lead at <span className="text-white font-semibold">EagleLion System Technology</span>, I drive backend engineering direction, oversee architectural decisions, establish development standards, and guide engineering teams from design to production. Working across <span className="text-teal-300 font-medium">Go</span>, <span className="text-teal-300 font-medium">Node.js/TypeScript</span>, and <span className="text-teal-300 font-medium">Python</span>, I focus on building high-performing teams, strengthening system reliability, improving engineering processes, and delivering technology that creates measurable business value.
             </p>
 
             {/* Quick Badges */}
@@ -171,9 +171,10 @@ const AboutMe = () => {
                 <div className="p-2.5 rounded-lg bg-slate-800/90 shrink-0 mt-0.5">
                   {item.icon}
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold text-white mb-1">{item.title}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                <div className="flex items-center justify-center text-center">
+                  <h3 className="text-base font-bold text-white mb-1">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -198,11 +199,10 @@ const AboutMe = () => {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
-                  activeTab === cat.id
-                    ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-semibold shadow-lg shadow-teal-500/20 scale-105"
-                    : "bg-slate-850/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800"
-                }`}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${activeTab === cat.id
+                  ? "bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-semibold shadow-lg shadow-teal-500/20 scale-105"
+                  : "bg-slate-850/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800"
+                  }`}
               >
                 {cat.icon}
                 <span>{cat.label}</span>
@@ -224,14 +224,6 @@ const AboutMe = () => {
                   <p className="text-xs text-slate-400 leading-relaxed mb-4">
                     {skill.desc}
                   </p>
-                </div>
-                <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div 
-                    className="bg-gradient-to-r from-teal-400 to-cyan-400 h-full rounded-full"
-                    style={{ 
-                      width: skill.level === "Expert" ? "95%" : skill.level === "Advanced" ? "88%" : skill.level === "Specialist" ? "85%" : "78%" 
-                    }}
-                  />
                 </div>
               </div>
             ))}
