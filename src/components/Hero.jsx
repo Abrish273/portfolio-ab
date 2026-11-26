@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { AbrehamPdf, PhotoImg } from "../assets";
+import TechStackMarquee from "./TechStackMarquee";
 import {
   ArrowDownTrayIcon,
   SparklesIcon,
@@ -60,31 +62,19 @@ const HeroSection = () => {
             {/* Subtitle Bio */}
             <div className="space-y-4">
               <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
-                I'm <strong className="text-white font-semibold">Abreham Tilahun</strong> —
-                Senior Tech Lead & Backend Engineer with 4+ years of experience driving
-                technology initiatives and building impactful digital solutions, particularly
-                in the fintech industry. I specialize in leading engineering teams,
-                shaping technical strategy, designing scalable architectures, and
-                translating complex business requirements into reliable technology solutions.
-              </p>
-
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
-                My approach combines technical leadership, strategic problem-solving,
-                and hands-on engineering to deliver secure, scalable, and high-impact systems.
-                I've contributed to financial platforms trusted with over
-                <span className="text-cyan-300 font-semibold"> ETB 500+ Billion</span> in transactions.
+                I'm <strong className="text-white font-semibold">Abreham Tilahun</strong> — a Senior Tech Lead & Backend Engineer passionate about turning complex challenges into scalable digital solutions. With a background in fintech, system architecture, and engineering leadership, I build technology that goes beyond code to create real business impact, powering systems trusted with <span className="text-cyan-300 font-semibold">ETB 500+ Billion</span> in transactions. I believe great engineering is where vision, innovation, and execution meet.
               </p>
             </div>
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-semibold text-slate-950 bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-300 hover:from-teal-300 hover:to-cyan-300 rounded-xl transition-all duration-300 shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5"
               >
                 <span>Let's Build Together</span>
                 <ArrowRightIcon className="w-4 h-4 stroke-[2.5]" />
-              </a>
+              </Link>
 
               {/* <a
                 href={AbrehamPdf}
@@ -115,7 +105,7 @@ const HeroSection = () => {
             </div>
 
             {/* Quick Skills Pills */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-2 text-xs font-mono text-slate-400">
+            {/* <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-2 text-xs font-mono text-slate-400">
               <span className="text-slate-500">Core:</span>
               <span className="px-2.5 py-1 bg-slate-850/80 rounded-md border border-slate-800 text-teal-300">Golang</span>
               <span className="px-2.5 py-1 bg-slate-850/80 rounded-md border border-slate-800 text-cyan-300">Node.js</span>
@@ -123,7 +113,7 @@ const HeroSection = () => {
               <span className="px-2.5 py-1 bg-slate-850/80 rounded-md border border-slate-800 text-indigo-300">PostgreSQL</span>
               <span className="px-2.5 py-1 bg-slate-850/80 rounded-md border border-slate-800 text-amber-300">Kafka</span>
               <span className="px-2.5 py-1 bg-slate-850/80 rounded-md border border-slate-800 text-blue-300">Docker</span>
-            </div>
+            </div> */}
 
           </div>
 
@@ -196,7 +186,9 @@ const HeroSection = () => {
             </div>
           ))}
         </div>
-
+        <div className="mt-12">
+          <TechStackMarquee />
+        </div>
       </div>
     </section>
   );

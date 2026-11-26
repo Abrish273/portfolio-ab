@@ -1,31 +1,14 @@
-import { useState, useRef, useEffect } from "react";
-import emailjs from "@emailjs/browser";
-import confetti from "canvas-confetti";
+import { useState, useEffect } from "react";
 import { 
-  EnvelopeIcon, 
   MapPinIcon, 
   ClockIcon, 
   CheckIcon, 
   ClipboardDocumentIcon,
-  PaperAirplaneIcon,
-  SparklesIcon,
   ChatBubbleLeftRightIcon
 } from "@heroicons/react/24/outline";
-import { MailIcon, LinkedInIcon, GitHubIcon } from "../assets";
-
-const inquiryTypes = [
-  "Fintech Architecture",
-  "High-Scale APIs",
-  "Distributed Systems",
-  "Full-Time Role",
-  "Part-Time Role",
-  "Consulting / Audit"
-];
+import { LinkedInIcon, GitHubIcon } from "../assets";
 
 const HireMe = () => {
-  const formRef = useRef();
-  const [selectedType, setSelectedType] = useState("Fintech Architecture");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [copied, setCopied] = useState(false);
   const [time, setTime] = useState("");
 
@@ -47,71 +30,16 @@ const HireMe = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const [fallbackUrls, setFallbackUrls] = useState(null);
-
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("abreham.tilahun2027@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    const formData = new FormData(formRef.current);
-    const fromName = formData.get("from_name") || "Potential Client";
-    const replyTo = formData.get("reply_to") || "";
-    const subject = formData.get("subject") || `Project Inquiry: ${selectedType}`;
-    const message = formData.get("message") || "";
-
-    const formattedSubject = `[Portfolio] ${subject} - from ${fromName}`;
-    const formattedBody = `Hello Abreham,\n\nName: ${fromName}\nEmail: ${replyTo}\nProject Scope: ${selectedType}\n\nMessage:\n${message}\n\n---\nSent via Portfolio Contact Form`;
-
-    const mailtoUrl = `mailto:abreham.tilahun2027@gmail.com?subject=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(formattedBody)}`;
-    const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=abreham.tilahun2027@gmail.com&su=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(formattedBody)}`;
-
-    setFallbackUrls({ mailto: mailtoUrl, gmail: gmailWebUrl });
-
-    emailjs
-      .sendForm(
-        "service_hq65pb8",
-        "template_3xfv5oj",
-        formRef.current,
-        "qLKi0ceZMRCKzvGlo"
-      )
-      .then(
-        (result) => {
-          setStatus("success");
-          try {
-            confetti({
-              particleCount: 120,
-              spread: 70,
-              origin: { y: 0.6 }
-            });
-          } catch (err) {}
-          if (formRef.current) formRef.current.reset();
-        },
-        (error) => {
-          console.warn("EmailJS API response:", error);
-          // Auto-trigger mail client fallback so message is never lost
-          setStatus("fallback");
-          window.location.href = mailtoUrl;
-          try {
-            confetti({
-              particleCount: 100,
-              spread: 70,
-              origin: { y: 0.6 }
-            });
-          } catch (err) {}
-        }
-      );
-  };
-
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-[#080c14]">
+    <section id="contact" className="min-h-[calc(100vh-5rem)] pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative bg-[#080c14]/80 flex flex-col justify-center">
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}

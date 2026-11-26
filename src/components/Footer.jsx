@@ -1,5 +1,6 @@
 import React from "react";
-import { ArrowUpIcon, HeartIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { ArrowUpIcon } from "@heroicons/react/24/outline";
 import { LogoIcon, GitHubIcon, LinkedInIcon, MailIcon } from "../assets";
 
 const Footer = () => {
@@ -44,9 +45,9 @@ const Footer = () => {
                 Navigation
               </span>
               <ul className="space-y-2">
-                <li><a href="#about" className="hover:text-teal-300 transition">About Me</a></li>
-                <li><a href="#experience" className="hover:text-teal-300 transition">Career Experience</a></li>
-                <li><a href="#skills" className="hover:text-teal-300 transition">Skill Matrix</a></li>
+                <li><Link to="/" className="hover:text-teal-300 transition">Home</Link></li>
+                <li><Link to="/about" className="hover:text-teal-300 transition">About Me</Link></li>
+                <li><Link to="/experience" className="hover:text-teal-300 transition">Career Experience</Link></li>
               </ul>
             </div>
             <div className="space-y-2.5">
@@ -54,9 +55,9 @@ const Footer = () => {
                 Explore
               </span>
               <ul className="space-y-2">
-                <li><a href="#service" className="hover:text-teal-300 transition">Services & Architecture</a></li>
-                <li><a href="#work" className="hover:text-teal-300 transition">Featured Projects</a></li>
-                <li><a href="#contact" className="hover:text-teal-300 transition">Contact & Inquiries</a></li>
+                <li><Link to="/services" className="hover:text-teal-300 transition">Services & Architecture</Link></li>
+                <li><Link to="/projects" className="hover:text-teal-300 transition">Featured Projects</Link></li>
+                <li><Link to="/contact" className="hover:text-teal-300 transition">Contact & Inquiries</Link></li>
               </ul>
             </div>
           </div>
@@ -67,13 +68,13 @@ const Footer = () => {
               Connect Online
             </span>
             <div className="flex items-center gap-2.5">
-              <a
+              {/* <a
                 href="mailto:abreham.tilahun2027@gmail.com"
                 className="w-10 h-10 rounded-xl bg-slate-850 hover:bg-teal-500/20 border border-slate-700/80 hover:border-teal-500/50 flex items-center justify-center transition"
                 aria-label="Email"
               >
                 <img src={MailIcon} alt="Email" className="w-4 h-4" />
-              </a>
+              </a> */}
               <a
                 href="https://www.linkedin.com/in/abrehamtilahun2027"
                 target="_blank"

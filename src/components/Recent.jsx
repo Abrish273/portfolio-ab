@@ -129,7 +129,7 @@ const Recent = () => {
       : projectsData.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="work" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-[#0b0f19]">
+    <section id="work" className="min-h-[calc(100vh-5rem)] pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative bg-[#0b0f19]/80">
       {/* Background Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-teal-500/5 rounded-full blur-[140px] pointer-events-none" />
 

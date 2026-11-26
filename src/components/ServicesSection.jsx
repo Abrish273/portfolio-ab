@@ -81,7 +81,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="service" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-[#080c14]">
+    <section id="service" className="min-h-[calc(100vh-5rem)] pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative bg-[#080c14]/80">
       {/* Background radial highlight */}
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[140px] pointer-events-none" />
 

@@ -1,74 +1,52 @@
 import { useState, useEffect } from "react";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { LogoIcon, AbrehamPdf } from "../assets";
 import {
   Bars3Icon,
   XMarkIcon,
   ArrowDownTrayIcon,
-  SparklesIcon,
   EnvelopeIcon
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const { pathname } = useLocation();
 
   const navItems = [
-    { name: "About", href: "about" },
-    { name: "Experience", href: "experience" },
-    { name: "Skills", href: "skills" },
-    { name: "Services", href: "service" },
-    { name: "Projects", href: "work" },
-    { name: "Contact", href: "contact" },
+    { name: "Home", to: "/" },
+    { name: "About", to: "/about" },
+    { name: "Experience", to: "/experience" },
+    { name: "Services", to: "/services" },
+    { name: "Projects", to: "/projects" },
+    { name: "Contact", to: "/contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      // Scrollspy calculation
-      const sections = ["home", "about", "experience", "skills", "service", "work", "contact"];
-      const scrollPosition = window.scrollY + 200;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const sectionEl = document.getElementById(sections[i]);
-        if (sectionEl && sectionEl.offsetTop <= scrollPosition) {
-          setActive(sections[i]);
-          break;
-        }
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId) => {
-    setActive(sectionId);
+  useEffect(() => {
     setIsOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  }, [pathname]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
         ? "bg-[#080c14]/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/40 py-3"
-        : "bg-transparent py-5"
+        : "bg-[#080c14]/50 backdrop-blur-md border-b border-white/5 py-4"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo Brand */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              setActive("home");
-            }}
+          <Link
+            to="/"
             className="group flex items-center gap-3 cursor-pointer"
           >
             <div className="relative">
@@ -87,47 +65,46 @@ export default function Navbar() {
               </div>
               <span className="text-[11px] text-slate-400 font-mono tracking-wider uppercase">Senior Tech Lead.</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#121a2b]/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shadow-inner shadow-black/30">
-            {navItems.map((item) => {
-              const isActive = active === item.href;
-              return (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`relative px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 cursor-pointer ${isActive
-                    ? "text-white bg-gradient-to-r from-teal-500 to-cyan-500 shadow-sm shadow-teal-500/30"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
-                    }`}
-                >
-                  {item.name}
-                </button>
-              );
-            })}
+          <nav className="hidden md:flex items-center gap-1 bg-[#121a2b]/80 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-white/10 shadow-inner shadow-black/30">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  `relative px-3.5 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-slate-950 font-semibold bg-gradient-to-r from-teal-400 to-cyan-400 shadow-sm shadow-teal-500/30"
+                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                  }`
+                }
+              >
+                {item.name}
+              </NavLink>
+            ))}
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2.5">
             <a
               href={AbrehamPdf}
               download="Abreham_Tilahun_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-lg transition-all duration-200 shadow-md shadow-teal-500/25 hover:shadow-teal-500/40"
-
-            // className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-lg transition-all duration-200 hover:text-white hover:border-slate-600 shadow-sm"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-lg transition-all duration-200 shadow-md shadow-teal-500/25 hover:shadow-teal-500/40"
+            
             >
               <ArrowDownTrayIcon className="w-4 h-4" />
-              <span>Resume</span>
+              <span>Download CV</span>
             </a>
-            {/* <a
-              href="#contact"
-              onClick={() => handleNavClick("contact")}
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-lg transition-all duration-200 shadow-md shadow-teal-500/25 hover:shadow-teal-500/40"
+            {/* <Link
+              to="/contact"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 hover:from-teal-300 hover:to-cyan-300 rounded-lg transition-all duration-200 shadow-md shadow-teal-500/25 hover:shadow-teal-500/40"
             >
               <EnvelopeIcon className="w-4 h-4" />
               <span>Hire Me</span>
-            </a> */}
+            </Link> */}
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -158,25 +135,30 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden mt-3 p-4 bg-[#0d131f]/95 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-2xl space-y-2 animate-in fade-in slide-in-from-top duration-200">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.href)}
-                className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${active === item.href
-                  ? "bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/30"
-                  : "text-slate-300 hover:bg-white/5 hover:text-white"
-                  }`}
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `block w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                    isActive
+                      ? "bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/30"
+                      : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  }`
+                }
               >
                 {item.name}
-              </button>
+              </NavLink>
             ))}
             {/* <div className="pt-2 border-t border-slate-800 flex gap-2">
-              <a
-                href="#contact"
-                onClick={() => handleNavClick("contact")}
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
                 className="w-full text-center py-2.5 text-xs font-semibold text-slate-950 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-xl"
               >
                 Hire Me
-              </a>
+              </Link>
             </div> */}
           </div>
         )}
